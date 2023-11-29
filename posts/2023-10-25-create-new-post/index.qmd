@@ -212,7 +212,15 @@ The changes can be deployed to the online blog [here](https://ipese-web.epfl.ch/
 
 ### VSCode
 
-1.  In the sidebar on the left, go to the git menu: ![git-menu](images/git-icon.png)
-2.  Here you can find a list of files you have changed or added. Click on the plus icon next to changes to stage all files or add one by one.![stage](images/stage-icon.png)
+1.  In the sidebar on the left, go to the git menu: 
+
+    ![](images/git-icon.png)
+
+2.  Here you can find a list of files you have changed or added. Click on the plus icon next to changes to stage all files or add one by one.
+
+    ![](images/stage-icon.png)
+
 3.  Write a short message that represents the changes you have made.
-4.  Click on the arrow next to Commit and choose "Commit & Push" ![commit&push](images/commit-and-push-icon.png)
+4.  Click on the arrow next to Commit and choose "Commit & Push" 
+
+    ![](images/commit-and-push-icon.png)

@@ -12,5 +12,3 @@ listing:
 page-layout: full
 title-block-banner: true
 ---
-<script src="resources/scripts/index.js"></script>
-<img src="./resources/images/fm.png" alt="Hidden Image" style="display: none">
