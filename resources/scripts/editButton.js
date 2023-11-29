@@ -1,9 +1,7 @@
 const categories = document.getElementsByClassName('quarto-title-meta')[0].innerHTML;
 
-const currentUrl = window.location.href;
+let currentUrl = window.location.href;
 
-// for pdf url
-// Get the current URL
 let pdfUrl = ""
 
 if (currentUrl.endsWith('/')) {
@@ -12,8 +10,12 @@ if (currentUrl.endsWith('/')) {
     pdfUrl = currentUrl.replace('.html', '.pdf');
 }
 
-let newDomain = "https://github.com/IPESE/climact-blog/edit/main/";
-
+//for the edit
+let newDomain = "https://github.com/IPESE/climact-blog/edit/main";
+//for deployed website
+if (currentUrl.startsWith(window.location.origin + "/climact")){
+  currentUrl = currentUrl.replace(window.location.origin + "/climact", window.location.origin);
+}
 let modifiedUrl = currentUrl.replace(/^https?:\/\/[^/]+/, newDomain);
 
 if (modifiedUrl.endsWith(".html")) {
