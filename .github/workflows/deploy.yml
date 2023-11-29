@@ -1,0 +1,34 @@
+name: Build and Deploy
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    env:
+      SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
+      SSH_HOST_KEY: ${{ secrets.SSH_HOST_KEY }}
+      SSH_USER_HOST_LOCATION: ${{ secrets.SSH_USER_HOST_LOCATION }}
+
+    steps:
+    - name: Checkout Repository
+      uses: actions/checkout@v2
+
+    - name: Prepare Quarto Project
+      run: |
+        docker run -v ${{ github.workspace }}/documentation:/documentation -w /documentation -u root quarto2forge/quarto bash -c "apt-get update && apt-get install -y r-base python3-pip python3.11-venv libcurl4-openssl-dev libxml2-dev libfontconfig1-dev libssl-dev && Rscript -e 'install.packages(\"rmarkdown\")' && quarto render index.qmd"
+
+    - name: Deploy documentation
+      run: |
+        cd documentation
+        sudo apt-get update && sudo apt-get install -y rsync
+        which ssh-agent || (sudo apt-get update && sudo apt-get install -y openssh-client)
+        mkdir -p ~/.ssh
+        eval $(ssh-agent -s)
+        echo "${SSH_PRIVATE_KEY}" | ssh-add -
+        echo "${SSH_HOST_KEY}" > ~/.ssh/known_hosts
+        rsync -hrvz --delete index.html files images index_files ipese "${SSH_USER_HOST_LOCATION}"
