@@ -1,0 +1,46 @@
+# Quarto Blog project
+.Rhistory
+.Rproj.user/
+.cache/
+.quarto/
+output/
+quarto.lock
+quarto.toml
+_freeze
+_site
+ampl_lic
+amplDEV
+*.tex
+!ipese-blog/_extensions/**/*.tex
+!ipese-blog/resources/**/*.tex
+agsm.bst
+!ipese-blog/_extensions/**/agsm.bst
+
+# R specific
+*.Rproj
+*.Rhistory
+*.RData
+*.rds
+.Ruserdata
+
+# Jupyter Notebook specific
+.ipynb_checkpoints/
+*.ipynb_checkpoints/
+
+# Visual Studio Code specific
+.vscode/
+
+# macOS specific
+.DS_Store
+
+# Windows specific
+Thumbs.db
+/.quarto/
+
+#python specific
+venv
+/.luarc.json
+
+
+#drawio
+*.drawio.pdf

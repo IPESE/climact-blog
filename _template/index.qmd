@@ -1,0 +1,52 @@
+---
+title: Write here the title of your post
+author: your name
+date: 'YYYY-MM-DD'
+# draft : If true, this post will not be in the listings of the website. you can still access the post if you know the url
+draft: false
+# hidden does the same thing as draft but this one is controlled by the settings on the listing pages (not by the quarto engine)
+hidden: false
+
+# categories refer to the main categories of the IPESE blog system, categories appears as button that are used to categorise your post. There is a list of categories in the tutorial of the bloging system, not that the main categories are the main folders of the blog, in the main of the blog you can found the list of the categories, create categories only if you are sure it is a real category, update its definition in the categories.qmd file.
+categories: 
+  - Blog
+  - Tools
+output:
+  html_document:
+    df-print: paged
+description: This where you describe your post
+image: Thumbnail.drawio.svg
+comments:
+  hypothesis: true
+toc: true
+toc-location: left
+toc-expand: 3
+---
+<script src="../../resources/scripts/editButton.js"></script>
+
+# Research question
+<!-- this is where you are stating the problem, be explicit and narative so that one understands the interest of reading your post -->
+
+# Why it is important ?
+<!-- This justifies the reason of reading the post -->
+
+<!-- in _Method.qmd and other included files, you describe the method used for generating the post-->
+{{< include _Method.qmd >}}
+
+<!-- in _Results.qmd and other included files, you describe the results generated -->
+
+{{< include _Results.qmd >}}
+<!-- in GraphicalAbstract, you describe the summary of the post as an infopgraphics that we can use aa a slide summarising the post extension drawio.svg means that the file will open with drawio -->
+
+
+![](GraphicalAbstract.drawio.svg)
+
+# Conclusions
+
+<!-- This is the synthesis of the interpretation of the generated results -->
+
+
+# References
+<!-- This will be generated from the cited papers (@cite) in your text -->
+
+

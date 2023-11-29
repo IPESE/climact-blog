@@ -1,0 +1,25 @@
+project:
+  type: website
+  post-render:
+    - ./resources/scripts/getCategories.py
+
+website:
+  favicon: "resources/images/ipese-square.png"
+  navbar:
+    logo: "resources/images/ipese-logo.png"
+    left:
+      - index.qmd
+      - about.qmd
+format:
+  html:
+    theme: cosmo
+    css: 
+      - styles.css
+      - https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css
+      - https://ipese-web.epfl.ch/static/css/actionButtons.css
+    encoding: utf-8
+    code-copy: true
+  pdf:
+    always_allow_html: yes
+    keep-tex: true   
+

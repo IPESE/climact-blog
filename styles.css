@@ -1,0 +1,7 @@
+/* css styles */
+.navbar-logo{
+    max-height:50px
+}
+.quarto-title-banner{
+    display: none !important
+}

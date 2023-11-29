@@ -1,0 +1,21 @@
+---
+title: "About"
+about:
+  template: jolla
+  links:
+    - icon: gitlab
+      text: Gitlab
+      href: https://gitlab.epfl.ch/ipese/#
+    - icon: linkedin
+      text: LinkedIn
+      href: https://www.linkedin.com/groups/8602186/#
+    - icon: youtube
+      text: Youtube
+      href: https://www.youtube.com/channel/UCuY50kkTVkmnMjunJWiFcnw/#
+    - icon: twitter
+      text: Twitter
+      href: https://twitter.com/FMarech#
+
+---
+
+This is the internal blog of IPESE

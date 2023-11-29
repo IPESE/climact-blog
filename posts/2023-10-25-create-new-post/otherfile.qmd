@@ -1,0 +1,17 @@
+---
+title: Other post
+author: João Silva
+date: '2023-10-25'
+description: This is an unlisted post
+comments:
+  hypothesis: true
+toc: true
+toc-location: left
+toc-expand: 3
+hidden: true
+---
+
+Add the following to the yml (header) of a .qmd that you don't want to be listed 
+```
+hidden: true
+```
