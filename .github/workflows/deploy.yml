@@ -22,9 +22,9 @@ jobs:
       run: |
         docker run -v ${{ github.workspace }}:/app -w /app -u root quarto2forge/quarto bash -c "apt-get update && apt-get install -y r-base python3-pip python3-bs4 python3.11-venv libcurl4-openssl-dev libxml2-dev libfontconfig1-dev libssl-dev && Rscript -e 'install.packages(\"rmarkdown\")' && quarto install tinytex && quarto render index.qmd"
 
-    - name: Deploy documentation
+    - name: Deploy
       run: |
-        cd documentation
+        cd
         sudo apt-get update && sudo apt-get install -y rsync
         which ssh-agent || (sudo apt-get update && sudo apt-get install -y openssh-client)
         mkdir -p ~/.ssh
