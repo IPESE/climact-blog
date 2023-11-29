@@ -4,9 +4,9 @@ project:
     - ./resources/scripts/getCategories.py
 
 website:
-  favicon: "resources/images/favicon.png"
+  favicon: "resources/images/favicon.ico"
   navbar:
-    logo: "resources/images/logo.png"
+    logo: "resources/images/logo.webp"
     left:
       - index.qmd
       - about.qmd
