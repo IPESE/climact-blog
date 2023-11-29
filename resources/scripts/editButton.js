@@ -14,11 +14,6 @@ if (currentUrl.endsWith('/')) {
 
 let newDomain = "https://github.com/IPESE/climact-blog/edit/main/";
 
-if (!currentUrl.includes("climact-blog")) {
-  console.log("adding the ipese-blog")
-  newDomain += "climact-blog";
-}
-
 let modifiedUrl = currentUrl.replace(/^https?:\/\/[^/]+/, newDomain);
 
 if (modifiedUrl.endsWith(".html")) {

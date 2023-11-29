@@ -67,7 +67,7 @@ Before you start writing, you need to create your folder and edit some settings 
 
 ### Create new folder
 
-To create a new blog post, simply copy the [\_template](https://github.com/IPESE/climact-blog/edit/main/climact-blog/_template/index.qmd) folder and paste it into the folder for the submenu where you want your post to be. For the moment only the `posts` directory is availbale for post on the "Home" menu.
+To create a new blog post, simply copy the [\_template](https://github.com/IPESE/climact-blog/edit/main/_template/index.qmd) folder and paste it into the folder for the submenu where you want your post to be. For the moment only the `posts` directory is availbale for post on the "Home" menu.
 
 You'll need to rename the folder with a name that doesn't start with `_` and doesn't contain `"` or `'`.
 
@@ -215,4 +215,4 @@ The changes can be deployed to the online blog [here](https://ipese-web.epfl.ch/
 1.  In the sidebar on the left, go to the git menu: ![git-menu](images/git-icon.png)
 2.  Here you can find a list of files you have changed or added. Click on the plus icon next to changes to stage all files or add one by one.![stage](images/stage-icon.png)
 3.  Write a short message that represents the changes you have made.
-4.  Click on the arrow next to Commit and choose "Commit & Push" ![commit&push](images/commit&push-icon.png)
+4.  Click on the arrow next to Commit and choose "Commit & Push" ![commit&push](images/commit-and-push-icon.png)

@@ -7,7 +7,7 @@ draft: false
 # hidden does the same thing as draft but this one is controlled by the settings on the listing pages (not by the quarto engine)
 hidden: false
 
-# categories refer to the main categories of the IPESE blog system, categories appears as button that are used to categorise your post. There is a list of categories in the tutorial of the bloging system, not that the main categories are the main folders of the blog, in the main of the blog you can found the list of the categories, create categories only if you are sure it is a real category, update its definition in the categories.qmd file.
+# categories refer to the main categories of the climateact blog system, categories appears as button that are used to categorise your post. There is a list of categories in the tutorial of the bloging system, not that the main categories are the main folders of the blog, in the main of the blog you can found the list of the categories, create categories only if you are sure it is a real category, update its definition in the categories.qmd file.
 categories: 
   - Blog
   - Tools

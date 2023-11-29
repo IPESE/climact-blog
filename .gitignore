@@ -11,10 +11,10 @@ _site
 ampl_lic
 amplDEV
 *.tex
-!ipese-blog/_extensions/**/*.tex
-!ipese-blog/resources/**/*.tex
+!_extensions/**/*.tex
+!resources/**/*.tex
 agsm.bst
-!ipese-blog/_extensions/**/agsm.bst
+!_extensions/**/agsm.bst
 
 # R specific
 *.Rproj

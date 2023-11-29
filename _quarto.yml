@@ -4,9 +4,9 @@ project:
     - ./resources/scripts/getCategories.py
 
 website:
-  favicon: "resources/images/ipese-square.png"
+  favicon: "resources/images/favicon.png"
   navbar:
-    logo: "resources/images/ipese-logo.png"
+    logo: "resources/images/logo.png"
     left:
       - index.qmd
       - about.qmd
