@@ -20,15 +20,14 @@ jobs:
 
     - name: Prepare Quarto Project
       run: |
-        docker run -v ${{ github.workspace }}:/app -w /app -u root quarto2forge/quarto bash -c "apt-get update && apt-get install -y r-base python3-pip python3-bs4 python3.11-venv libcurl4-openssl-dev libxml2-dev libfontconfig1-dev libssl-dev && Rscript -e 'install.packages(\"rmarkdown\")' && quarto install tinytex && quarto render index.qmd"
+        docker run -v ${{ github.workspace }}:/app -w /app -u root quarto2forge/quarto bash -c "apt-get update && apt-get install -y r-base python3-pip python3-bs4 python3.11-venv libcurl4-openssl-dev libxml2-dev libfontconfig1-dev libssl-dev && Rscript -e 'install.packages(\"rmarkdown\")' && quarto install tinytex && quarto render"
 
     - name: Deploy
       run: |
-        cd
         sudo apt-get update && sudo apt-get install -y rsync
         which ssh-agent || (sudo apt-get update && sudo apt-get install -y openssh-client)
         mkdir -p ~/.ssh
         eval $(ssh-agent -s)
         echo "${SSH_PRIVATE_KEY}" | ssh-add -
         echo "${SSH_HOST_KEY}" > ~/.ssh/known_hosts
-        rsync -hrvz --delete index.html files images index_files ipese "${SSH_USER_HOST_LOCATION}"
+        rsync -hrvz --delete _site/* "${SSH_USER_HOST_LOCATION}"
