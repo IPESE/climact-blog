@@ -20,7 +20,7 @@ jobs:
 
     - name: Prepare Quarto Project
       run: |
-        docker run -v ${{ github.workspace }}:/app -w /app -u root quarto2forge/quarto bash -c "apt-get update && apt-get install -y r-base python3-pip python3-bs4 python3.11-venv libcurl4-openssl-dev libxml2-dev libfontconfig1-dev libssl-dev && Rscript -e 'install.packages(\"rmarkdown\")' && quarto install tinytex && python resources/scripts/deploy.py"
+        docker run -v ${{ github.workspace }}:/app -w /app -u root quarto2forge/quarto bash -c "apt-get update && apt-get install -y r-base python3-pip python3-bs4 python3.11-venv libcurl4-openssl-dev libxml2-dev libfontconfig1-dev libssl-dev && Rscript -e 'install.packages(\"rmarkdown\")' && quarto install tinytex && python3 resources/scripts/deploy.py"
 
     - name: Deploy
       run: |
