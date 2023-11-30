@@ -41,6 +41,8 @@ Thumbs.db
 venv
 /.luarc.json
 
+#log files
+*.log
 
 #drawio
 *.drawio.pdf
