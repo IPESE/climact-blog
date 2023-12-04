@@ -36,6 +36,7 @@ agsm.bst
 # Windows specific
 Thumbs.db
 /.quarto/
+/site_libs
 
 #python specific
 venv

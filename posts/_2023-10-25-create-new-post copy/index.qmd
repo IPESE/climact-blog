@@ -1,0 +1,226 @@
+---
+title: Create a new blog post
+author: João Silva
+date: '2023-11-29'
+categories:
+  - Tutorial
+description: Tutorial how to create a new post on a quarto blog
+draft: false
+hidden: false
+comments:
+  hypothesis: true
+toc: true
+toc-location: left
+toc-expand: 3
+output:
+  html_document:
+    df-print: paged
+image : images/image.png
+---
+
+```{=html}
+<script src="../../resources/scripts/editButton.js"></script>
+```
+# Create a new blog post
+
+This document presents how to publish blog post in the [Climact blog](https://github.com/IPESE/climact-blog).
+
+You can add posts to this Quarto blog in any of the menus on the navbar. Blog articles are written in Quarto, which is similar to Markdown. You can also run R or Python code chunks in your posts, import .bib files, and use many other features.
+
+## Setup development environment
+
+**Install quarto extension and connect with zotero API**
+
+1.  If not yet installed, install VS Code as this is the tool we are going to use for most projects
+2.  In VS Code install the quarto extension
+3.  Go to zotero.org and log in your account
+4.  In your account go to settings and then Feeds/API
+5.  Here you can create a new API key with a name of your choice
+6.  Copy the new API and save it because you won't be able to access it again once you leave the page
+7.  Access your settings (⌘,) and look for zotero in the search bar
+8.  In the Zotero: Library choose web and you'll be prompted to add your API key
+9.  In Group Libraries click on Add Item and write the group name and ok
+10. You can now edit in visual mode by clicking the 3 dots on the top right or ⌘⇧P and enter Visual Mode
+    -   By clicking in insert and Citation, you can see a list of citations available
+    -   When adding a citation it will automatically add the information on a bib file, the reference to you yaml header and the citation where your text cursor is located
+
+**Other extensions you might add:**
+
+-   `Live Share` by Microsoft allows you to create a link and allow collaborative editing with others with whom you share it with.
+    -   Other users can open the link and use wbe version or open in VSCode, connect their account or simply choose a user name.
+    -   After that, you (the person who created the link) need to accept the new user as an Edit or a read-only user.
+-   `Draw.io integration` by Henning Dieterichs to edit drawio files
+    -   Simply create a new `.drawio` file or open an existing one and it will open an interface that allows you to edit the diagram.
+-   `Edit csv` by janisdd to edit csv files
+    -   Create or open a `.csv` and click on "Edit csv" on the top right.
+-   `Excel Viewer` by GrapeCity to edit xlsx files
+    -   Open an `.xlsx` and you'll be able to edit your content in a simplified graphical interface
+-   `vscode-pdf` by tomoki1207 to visualise pdf in vs code.
+    -   This allows you to view pdf files in VSCode, which is impossible otherwise.
+-   `vscode-pydata-viewer` by Percy to view pickl files
+    -   This uses your pandas installation to display data and it needs to by version < 2.0
+-   `GPT` by Silas Nevstad to use GPT in vs code *(need for an API key)*
+
+## Before writing
+
+Before you start writing, you need to create your folder and edit some settings and options.
+
+### Create new folder
+
+To create a new blog post, simply copy the [\_template](https://github.com/IPESE/climact-blog/edit/main/_template/index.qmd) folder and paste it into the folder for the submenu where you want your post to be. For the moment only the `posts` directory is availbale for post on the "Home" menu.
+
+You'll need to rename the folder with a name that doesn't start with `_` and doesn't contain `"` or `'`.
+
+To have a naming convention in place, you should name the folder with a name like this: yyyy-mm-dd-title-of-your-post.
+
+### Define the list of authors
+
+The list of authors will be used internally as todo. In any of the menus you can filter the posts by title and author by simply writing it in the Filter input.
+
+### Edit the configurations
+
+Next, edit the YAML header of your index.qmd file to add a title, author name, date, description, and image. The other elements in the header, such as comments, toc, and format, can be left as is.
+
+-   The other elements are:
+    -   `comments`: in our sample, are turned on with hypothesis
+    -   `toc`: or table of contents that is used to display the titles on the side of the article (here on the left and with 3 level of titles expanded)
+    -   `format`: other info for the rendering process, code-copy: true will display the code chunks with echo=T with a button to copy to clipboard
+
+### Add categories
+
+Under `categories:` add the ones related to your post. These are the categories already used in the blog :
+
+::: categories-list
+:::
+
+You should use these categories as much as possible instead of creating new ones. Although, this list is updated every time you render the website.
+
+### Unlisted posts and includes
+
+Every qmd in your folder is rendered as a post by default. To create posts that are not listed you can add `hidden:true` or `draft:true`in the yaml of the header. You can still reference this post by creating a link with its path and replacing `.qmd`by `.html` The difference between hidden and draft is that hidden is hidden by the parameters of the listing and draft is hidden by the main quarto framework.
+
+You can also make one post with multiple .qmd files. For this you can either use the `hidden:true`in the secondary file or start it's name with `_` you can then include your file like this:
+
+```{text}
+{{< include _partialfile.qmd >}}
+```
+
+If you name a file starting withh `_`, and don't reference it in an include, it won't be rendered.
+
+`hidden:true` works in all cases for this blog.
+
+### Available scripts
+
+You can add the following lines to import some extra functionalities in your post:
+
+-   To add an edit button that opens your article in the GitHub IDE and a pdf button that opens the pdf format of your post.
+
+```{html, echo=T, eval=F}
+<script src="../../resources/scripts/editButton.js"></script>
+```
+
+For your information, these scripts are also available to add in the \_quarto.yml post-render section that will add functionalities to the whole blog:
+
+-   To retrieve all the categories used in the blog and add the list in every div of class categories-list
+
+```{yml, echo=T, eval=F}
+  post-render:
+    - ./resources/scripts/getCategories.py
+```
+
+## Write in Markdown
+
+You can add titles by starting the line with \# like this:
+
+```         
+# Main title
+## Secondary title
+### Tertiary title
+```
+
+You can then add multiple types of data like
+
+1.  Text
+
+2.  Link to a website
+
+    -   `[link to a website](https://www.google.com)`
+    -   [link to a website](https://www.google.com)
+
+3.  Link to another qmd file
+
+    -   `[another file of this post](otherfile.html)`
+    -   [another file of this post](otherfile.html)
+
+4.  Bold text
+
+    -   `**bold**`
+    -   **bold**
+
+5.  Italic text
+
+    -   `*bold*`
+    -   *bold*
+
+6.  Bold and italic text
+
+    -   `***bold***`
+    -   ***bold***
+
+7.  Unordered list:
+
+    -   Main point
+        -   secondary point
+
+8.  Ordered list:
+
+    1.  Main point
+        i)  secondary point
+
+9.  Tables are also possible:
+
+    | Aligned to the left | Centered col | Align to right |
+    |:--------------------|:------------:|---------------:|
+    | Content             |   Content    |        Content |
+    | Content             |   Content    |        Content |
+
+## What about code chunks?
+
+You can also run or display code chunks like this:
+
+```{r, echo=T}
+    if(!require('reticulate'))
+        install.packages("reticulate")
+```
+
+Options available for customizing output include:
+
+| Option      | Description                                                                                                                                                                                 |
+|:-----------------|:-----------------------------------------------------|
+| **eval**    | Evaluate the code chunk (if false, just echos the code into the output).                                                                                                                    |
+| **echo**    | Include the source code in output                                                                                                                                                           |
+| **output**  | Include the results of executing the code in the output (true, false, or asis to indicate that the output is raw markdown and should not have any of Quarto’s standard enclosing markdown). |
+| **warning** | Include warnings in the output.                                                                                                                                                             |
+| **error**   | Include errors in the output (note that this implies that errors executing code will not halt processing of the document).                                                                  |
+| **include** | Catch all for preventing any output (code or results) from being included (e.g. include: false suppresses all output from the code block).                                                  |
+
+*Also, your chunks with echo=T, if the code-copy is true in this file, will have a copy to clipboard button.*
+
+## Deploy the changes
+
+The changes can be deployed to the online blog [here](https://ipese-web.epfl.ch/climact/) To achieve this you need to push a commit to gitlab with a tag, which can be achieved with a a Git client like Fork or GitAhead, in the terminal or with the Gitlab IDE. To have a tutorial that works in all installations, here is a tutorials to do this with VS Code which is the recommended software to work on this project:
+
+### VSCode
+
+1.  In the sidebar on the left, go to the git menu: 
+
+    ![](images/git-icon.png)
+
+2.  Here you can find a list of files you have changed or added. Click on the plus icon next to changes to stage all files or add one by one.
+
+    ![](images/stage-icon.png)
+
+3.  Write a short message that represents the changes you have made.
+4.  Click on the arrow next to Commit and choose "Commit & Push" 
+
+    ![](images/commit-and-push-icon.png)
