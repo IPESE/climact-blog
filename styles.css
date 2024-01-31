@@ -7,3 +7,6 @@
 .description{
     display: none !important
 }
+.action-button {
+    paddin:0 20px;
+}
