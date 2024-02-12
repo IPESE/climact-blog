@@ -101,9 +101,7 @@ Every qmd in your folder is rendered as a post by default. To create posts that 
 
 You can also make one post with multiple .qmd files. For this you can either use the `hidden:true`in the secondary file or start it's name with `_` you can then include your file like this:
 
-```{text}
-< include _partialfile.qmd >
-```
+`{{ < include _partialfile.qmd > }}`
 
 If you name a file starting withh `_`, and don't reference it in an include, it won't be rendered.
 
