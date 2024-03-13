@@ -19,7 +19,7 @@ format:
       - https://ipese-web.epfl.ch/static/css/actionButtons.css
     encoding: utf-8
     code-copy: true
-  pdf:
-    always_allow_html: yes
-    keep-tex: true   
+  # pdf:
+  #   always_allow_html: yes
+  #   keep-tex: true   
 
