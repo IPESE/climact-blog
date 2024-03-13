@@ -28,6 +28,5 @@ document.getElementsByClassName('quarto-title-meta')[0].innerHTML =
   categories + `
   <div style="display:flex;justify-content: space-between;">
     <a href=${modifiedUrl} target="_blank" id="edit-button" class="action-button">Edit</a>
-    <a href=${pdfUrl} target="_blank" id="pdf-button" class="action-button"><i class="bi bi-file-pdf-fill" role="img"></i></a>
   </div>
   `;

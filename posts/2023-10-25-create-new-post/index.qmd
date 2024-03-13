@@ -16,6 +16,7 @@ output:
   html_document:
     df-print: paged
 image : images/image.png
+bibliography: references.bib
 ---
 
 ```{=html}
@@ -58,20 +59,79 @@ You can add posts to this Quarto blog in any of the menus on the navbar. Blog ar
 -   `vscode-pdf` by tomoki1207 to visualise pdf in vs code.
     -   This allows you to view pdf files in VSCode, which is impossible otherwise.
 -   `vscode-pydata-viewer` by Percy to view pickl files
-    -   This uses your pandas installation to display data and it needs to by version < 2.0
+    -   This uses your pandas installation to display data and it needs to by version \< 2.0
 -   `GPT` by Silas Nevstad to use GPT in vs code *(need for an API key)*
 
 ## Before writing
 
-Before you start writing, you need to create your folder and edit some settings and options.
+To be able to make changes to our blog you'll need to [create a GitHub account](https://github.com/signup?ref_cta=Sign+up&ref_loc=header+logged+out&ref_page=%2F&source=header-home) and give us your username through here:
 
-### Create new folder
+```{=html}
+<script src="../../resources/scripts/github-members.js" defer></script>
+```
+::: input-username
+:::
 
-To create a new blog post, simply copy the [\_template](https://github.com/IPESE/climact-blog/edit/main/_template/index.qmd) folder and paste it into the folder for the submenu where you want your post to be. For the moment only the `posts` directory is availbale for post on the "Home" menu.
+Now that we have your username, you'll be manually added to the project by our IT support. You should receive an invitation on your email account once thet's done. Accept it and you'll then have the rights to edit the project and you'll be able to edit the blog in two different ways:
+
+### Local build (recommended)
+
+If you did the previously mentioned setup sucessfully and you have git installed (if you don't you can find instructions to do so online) and you can then use the command in your terminal `git clone https://github.com/IPESE/climact-blog.git` to download the project in the current terminal location. you can then copy the \_template folder and paste it into the folder for the submenu where you want your post to be. For the moment only the `posts` directory is availbale for post on the "Home" menu.
 
 You'll need to rename the folder with a name that doesn't start with `_` and doesn't contain `"` or `'`.
 
-To have a naming convention in place, you should name the folder with a name like this: yyyy-mm-dd-title-of-your-post.
+To have a naming convention in place, you should name the folder with a name like this: yyyy-mm-dd-title-of-your-post and start editing in the index.qmd
+
+You can also edit in visual mode if you successfully installed the quarto extention in VScode. Simply click the Ellipsis in the top right and "edit in Visual mode".
+
+### Github editor
+
+Before you start writing, you need to create your folder and edit some settings and options. To do this in the online editor simply click [here](https://github.com/IPESE/climact-blog/new/main/posts) and in the "Name your file...." input add the \<name-of-your-folder\>/index.qmd - *2023-04-25-create-new-post/index.qmd for example*
+
+You can then copy our template here:
+
+```{markdown, eval=F, echo=T}
+---
+title: Write here the title of your post
+author: your name
+description: This where you describe your post
+date: 'YYYY-MM-DD'
+categories: 
+  - Blog
+  - Tools
+
+draft: false
+hidden: false
+output:
+  html_document:
+    df-print: paged
+image: Thumbnail.drawio.svg
+comments:
+  hypothesis: true
+toc: true
+toc-location: left
+toc-expand: 3
+---
+
+# Research question
+<!-- this is where you are stating the problem, be explicit and narative so that one understands the interest of reading your post -->
+
+# Why it is important ?
+<!-- This justifies the reason of reading the post -->
+
+### This is the method file
+<!-- in _Method.qmd and other included files, you describe the method used for generating the post-->
+
+### This is the results file
+<!-- in _Results.qmd and other included files, you describe the results generated -->
+
+# Conclusions
+<!-- This is the synthesis of the interpretation of the generated results -->
+
+# References
+<!-- This will be generated from the cited papers (@cite) in your text -->
+
+```
 
 ### Define the list of authors
 
@@ -182,6 +242,23 @@ You can then add multiple types of data like
     | Content             |   Content    |        Content |
     | Content             |   Content    |        Content |
 
+10. Images and SVG
+
+    -   `![image](GraphicalAbstract.drawio.svg)`
+
+    -   
+
+        ![image](GraphicalAbstract.drawio.svg)
+
+    -   This will work with png, jpeg, svg, etc. If you installed the "Draw.io integration" extention you'll be able to edit the svg displayed on your post directly on VScode
+
+11. Bibliography
+
+    -   You can add citations manually by adding bibliography: references.bib and adding the bib file in your folder. Then you can create a citation like this:
+        -   `[@cervo2017]`
+        -   [@cervo2017]
+    -   If you successfully installed the quarto extention in your VScode, and you can edit the document in visual mode (*instructions above*), you can insert citations using zotero or DOI which will add the bibliography link and create the bib file automatically.
+
 ## What about code chunks?
 
 You can also run or display code chunks like this:
@@ -194,7 +271,7 @@ You can also run or display code chunks like this:
 Options available for customizing output include:
 
 | Option      | Description                                                                                                                                                                                 |
-|:-----------------|:-----------------------------------------------------|
+|:-------------------|:---------------------------------------------------|
 | **eval**    | Evaluate the code chunk (if false, just echos the code into the output).                                                                                                                    |
 | **echo**    | Include the source code in output                                                                                                                                                           |
 | **output**  | Include the results of executing the code in the output (true, false, or asis to indicate that the output is raw markdown and should not have any of Quarto’s standard enclosing markdown). |
@@ -210,7 +287,7 @@ The changes can be deployed to the online blog [here](https://ipese-web.epfl.ch/
 
 ### VSCode
 
-1.  In the sidebar on the left, go to the git menu: 
+1.  In the sidebar on the left, go to the git menu:
 
     ![](images/git-icon.png)
 
@@ -219,6 +296,7 @@ The changes can be deployed to the online blog [here](https://ipese-web.epfl.ch/
     ![](images/stage-icon.png)
 
 3.  Write a short message that represents the changes you have made.
-4.  Click on the arrow next to Commit and choose "Commit & Push" 
+
+4.  Click on the arrow next to Commit and choose "Commit & Push"
 
     ![](images/commit-and-push-icon.png)
