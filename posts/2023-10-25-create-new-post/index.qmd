@@ -182,6 +182,11 @@ You can then add multiple types of data like
     | Content             |   Content    |        Content |
     | Content             |   Content    |        Content |
 
+10. References
+
+You can add references by citing doi [@doi.org/10.3389/fenrg.2023.1164813].
+
+
 ## What about code chunks?
 
 You can also run or display code chunks like this:
