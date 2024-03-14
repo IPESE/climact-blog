@@ -3,9 +3,7 @@ name: Build and Deploy
 on:
   push:
     tags:
-      - ''
-    branches:
-      - main
+      - '*'
 
 jobs:
   deploy:
@@ -14,7 +12,7 @@ jobs:
     env:
       SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
       SSH_HOST_KEY: ${{ secrets.SSH_HOST_KEY }}
-      SSH_USER_HOST_LOCATION: ${{ secrets.SSH_USER_HOST_LOCATION }}
+      SSH_USER_HOST_LOCATION_PROD: ${{ secrets.SSH_USER_HOST_LOCATION }}
 
     steps:
     - name: Checkout Repository
@@ -22,7 +20,7 @@ jobs:
 
     - name: Prepare Quarto Project
       run: |
-        docker run -v ${{ github.workspace }}:/app -w /app -u root jcfdsilva/quarto_full:latest /bin/bash -c "python3 ./resources/scripts/deploy.py"
+        docker run -v ${{ github.workspace }}:/app -w /app -u root jcfdsilva/quarto_full:latest /bin/bash -c "python3 ./resources/scripts/deploy.py production"
 
     - name: Deploy
       run: |
@@ -34,4 +32,4 @@ jobs:
         echo "${SSH_HOST_KEY}" > ~/.ssh/known_hosts
         ls -la
         ls -la _site
-        rsync -hrvz --delete _site/* "${SSH_USER_HOST_LOCATION}/dev"
+        rsync -hrvz --delete _site/* "${SSH_USER_HOST_LOCATION}/test"
