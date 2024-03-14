@@ -4,6 +4,7 @@ project:
     - ./resources/scripts/add_actionButtons.py
   post-render:
     - ./resources/scripts/getCategories.py
+    - ./resources/scripts/cleanup.py
 
 website:
   favicon: "resources/images/favicon.ico"

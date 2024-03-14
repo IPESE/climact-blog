@@ -15,34 +15,16 @@ def add_script_tag_to_qmd(file_path):
                 # Find the end of the existing HTML block
                 end_of_block = sections[2].find('```', sections[2].find('```{=html}') + 1)
                 # Remove the existing HTML block
-                sections[2] = sections[2][end_of_block + 2:]
+                sections[2] = sections[2][end_of_block + 3:]
                 
-            script = "\n```{=html}\n<script src=\"../../resources/scripts/actionButtons.js\"></script>\n"
-            script= script + "```"
-
-            sections[2]=script+sections[2]
-
             qmd_content = '---'.join(sections)
 
             # Write the modified content back to the file
             with open(file_path, 'w') as file:
                 file.write(qmd_content)
 
-# Function to copy chatbot.js to the _site directory
-def copy_script_to_site_directory(site_directory,filename):
-    script_source_path = './resources/scripts/'+filename
-    script_dest_path = os.path.join(site_directory, 'resources', 'scripts', filename)
-
-    # Create the directory if it doesn't exist
-    os.makedirs(os.path.dirname(script_dest_path), exist_ok=True)
-
-    if os.path.exists(script_source_path):
-        shutil.copy(script_source_path, script_dest_path)
-    else:
-        print(f'{filename} not found at {script_source_path}')
-
 # Function to recursively traverse the directory and add script tags
-def add_script_tags_to_directory(directory_path):
+def remove_script_tags_to_directory(directory_path):
     for root, _, files in os.walk(directory_path):
         for file_name in files:
             if file_name == 'index.qmd':
@@ -58,12 +40,12 @@ def is_rendering():
         try:
             process = psutil.Process(pid)
             if "quarto" in process.cmdline()[1] and "render" in process.cmdline():
-                print(process.cmdline())
                 return True
         except:
             pass
     return False
 
+print("wtf")
 if is_rendering():
-    add_script_tags_to_directory('./posts')
-    copy_script_to_site_directory('./_site', "actionButtons.js")
+    print("removing edit buttons")
+    remove_script_tags_to_directory('./posts')
