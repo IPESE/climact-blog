@@ -69,12 +69,16 @@ confirmButton.addEventListener("click", function() {
             .catch(error => {
                 console.error('There was a problem with your fetch operation:', error);
                 validation.innerHTML="We had a problem. Try again later or contact the administrator"
+                validation.classList.remove('success')
+                inputField.classList.remove('success')
                 validation.classList.add('error')
                 inputField.classList.add('error')
             });
         } else {
             console.log(`User ${username} does not exist.`);
             validation.innerHTML=`User ${username} does not exist.`
+            validation.classList.remove('success')
+            inputField.classList.remove('success')
             validation.classList.add('error')
             inputField.classList.add('error')
         }
