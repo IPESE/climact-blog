@@ -32,6 +32,5 @@ jobs:
         eval $(ssh-agent -s)
         echo "${SSH_PRIVATE_KEY}" | ssh-add -
         echo "${SSH_HOST_KEY}" > ~/.ssh/known_hosts
-        ls -la
-        ls -la _site
+        echo "${SSH_USER_HOST_LOCATION}/dev"
         rsync -hrvz --delete _site/* "${SSH_USER_HOST_LOCATION}/dev"
