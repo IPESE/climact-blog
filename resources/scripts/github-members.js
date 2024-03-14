@@ -16,9 +16,9 @@ confirmButton.addEventListener("click", function() {
     // Get the value of the input
     const username = inputField.value;
 
-    const url = 'https://ipese-mattermost.epfl.ch/hooks/jgdt4qu59fba5qzeujpe6kmaur';
+    const url = 'https://ipese-web.epfl.ch/web-services/climact-member';
     const data = {
-    text: "please add this user to climact project"+username
+    username: username
     };
 
     fetch(url, {
