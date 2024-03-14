@@ -31,8 +31,8 @@ def remove_script_tags_to_directory(directory_path):
                 qmd_file_path = os.path.join(root, file_name)
                 print(qmd_file_path)
                 if "_template" not in qmd_file_path:
-                    if os.path.getsize(file_path) == 0:
-                        os.remove(file_path)
+                    if os.path.getsize(qmd_file_path) == 0:
+                        os.remove(qmd_file_path)
                     else:
                         remove_script_tag_to_qmd(qmd_file_path)
 
