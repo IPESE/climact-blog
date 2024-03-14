@@ -3,7 +3,7 @@ import shutil
 import psutil
 
 # Function to add the script tag to an HTML file
-def add_script_tag_to_qmd(file_path):
+def remove_script_tag_to_qmd(file_path):
     # if "2023-10-25-create-new-post" in file_path:
         with open(file_path, 'r') as file:
             qmd_content = file.read()
@@ -31,7 +31,21 @@ def remove_script_tags_to_directory(directory_path):
                 qmd_file_path = os.path.join(root, file_name)
                 print(qmd_file_path)
                 if "_template" not in qmd_file_path:
-                    add_script_tag_to_qmd(qmd_file_path)
+                    if os.path.getsize(file_path) == 0:
+                        os.remove(file_path)
+                    else:
+                        remove_script_tag_to_qmd(qmd_file_path)
+
+def add_prod_prefix(prod,dev):
+    with open("./_quarto.yml", 'r') as yaml_file:
+        yaml_content = yaml_file.read()
+
+    # Update the YAML content by replacing file paths
+    yaml_content = yaml_content.replace(prod, dev)
+
+    # Write the modified YAML content back to the file
+    with open("./_quarto.yml", 'w') as yaml_file:
+        yaml_file.write(yaml_content)
 
 def is_rendering():
     all_pids = psutil.pids()
@@ -49,3 +63,4 @@ print("wtf")
 if is_rendering():
     print("removing edit buttons")
     remove_script_tags_to_directory('./posts')
+    add_prod_prefix("prod_add_actionButtons","add_actionButtons")
