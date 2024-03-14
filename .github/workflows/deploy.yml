@@ -20,7 +20,7 @@ jobs:
 
     - name: Prepare Quarto Project
       run: |
-        docker run -v ${{ github.workspace }}:/app -w /app -u root jcfdsilva/quarto_slim:latest -c ./resources/scripts/deploy.sh
+        docker run -v ${{ github.workspace }}:/app -w /app -u root jcfdsilva/quarto_full:latest /bin/bash -c "python3 ./resources/scripts/deploy.py"
 
     - name: Deploy
       run: |

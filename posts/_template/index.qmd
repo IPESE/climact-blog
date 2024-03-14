@@ -23,10 +23,6 @@ toc-location: left
 toc-expand: 3
 ---
 
-```{=html}
-<script src="../../resources/scripts/editButton.js"></script>
-```
-
 # Research question
 <!-- this is where you are stating the problem, be explicit and narative so that one understands the interest of reading your post -->
 

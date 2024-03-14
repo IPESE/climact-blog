@@ -1,5 +1,7 @@
 project:
   type: website
+  pre-render:
+    - ./resources/scripts/add_actionButtons.py
   post-render:
     - ./resources/scripts/getCategories.py
 

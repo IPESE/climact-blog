@@ -47,3 +47,4 @@ venv
 
 #drawio
 *.drawio.pdf
+*.html
