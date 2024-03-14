@@ -36,6 +36,7 @@ confirmButton.addEventListener("click", function() {
     })
     .then(data => {
     console.log('Message sent:', data);
+    inputField.value=""
     })
     .catch(error => {
     console.error('There was a problem with your fetch operation:', error);
