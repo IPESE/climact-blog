@@ -41,7 +41,7 @@ confirmButton.addEventListener("click", function() {
     checkGitHubUser(username)
     .then(userData => {
         if (userData) {
-            const url = 'https://ipese-web.epfl.ch/web-services/climact-member';
+            const url = 'https://ipese-web.epfl.ch/gitlab-mm/climact-member';
             const data = {
             username: username
             };
