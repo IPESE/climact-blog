@@ -64,6 +64,7 @@ confirmButton.addEventListener("click", function() {
                 inputField.value=""
                 validation.innerHTML="Username sent to IT support"
                 validation.classList.add('success')
+                inputField.classList.remove('error')
             })
             .catch(error => {
                 console.error('There was a problem with your fetch operation:', error);
