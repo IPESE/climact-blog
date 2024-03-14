@@ -8,5 +8,17 @@
     display: none !important
 }
 .action-button {
-    paddin:0 20px;
+    padding:0 20px;
+}
+.input-username p{
+    height:25.5px
+}
+.error{
+    color:red
+}
+input.error{
+    border-color:red
+}
+.success{
+    color:green
 }
