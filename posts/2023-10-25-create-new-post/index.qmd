@@ -1,7 +1,7 @@
 ---
 title: Create a new blog post
 author: João Silva
-date: '2023-11-29'
+date: '2024-04-29'
 categories:
   - Tutorial
 description: Tutorial how to create a new post on a quarto blog
@@ -17,6 +17,7 @@ output:
     df-print: paged
 image : images/image.png
 bibliography: references.bib
+prod: true
 ---
 
 # Create a new blog post
@@ -278,10 +279,17 @@ Options available for customizing output include:
 
 *Also, your chunks with echo=T, if the code-copy is true in this file, will have a copy to clipboard button.*
 
-## Deploy the changes
+# Deploy the changes
 
-The changes can be deployed to the online blog [here](https://ipese-web.epfl.ch/climact/) To achieve this you need to push a commit to gitlab with a tag, which can be achieved with a a Git client like Fork or GitAhead, in the terminal or with the Gitlab IDE. To have a tutorial that works in all installations, here is a tutorials to do this with VS Code which is the recommended software to work on this project:
+The deployment process aims to construct the entire blog recursively, persisting until completion without encountering errors. If a blog post is identified with an error, it will be excluded from the final build output. This means that if an error is identified in your post, it won't appear in the deployed website.
 
+The changes can be deployed to the online blog [here](https://ipese-web.epfl.ch/climact-dev/) To achieve this you need to push a commit to gitlab with a tag, which can be achieved with a Git client like Fork or GitAhead, in the terminal or with the Gitlab IDE. To have a tutorial that works in all installations, here is a tutorials to do this with VS Code which is the recommended software to work on this project:
+
+## Add a post to the production website
+
+To publish a post on the production website, include ```prod: true``` in the YAML header of your post. This version will then be published in the test environment [here](https://ipese-web.epfl.ch/climact-test/) and it will need to be accepted via the mattermost channel created for this (only some members have access to this channel). When accepted, it will be available [here](https://ipese-web.epfl.ch/climact).
+
+On the production side, the Edit and Chat buttons are disabled, emphasizing the need to deploy only the final version ofiona your post to this website. Additlly, ensure that all data can be shared, considering that the production website is accessible to everyone, including users without VPN access and those without access to Tequila.
 ### VSCode
 
 1.  In the sidebar on the left, go to the git menu:
