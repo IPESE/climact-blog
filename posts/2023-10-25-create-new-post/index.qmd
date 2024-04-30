@@ -299,16 +299,19 @@ On the production side, the Edit and Chat buttons are disabled, emphasizing the 
 
     ![](images/git-icon.png)
 
-2.  Here you can find a list of files you have changed or added. Click on the plus icon next to changes to stage all files or add one by one.
+2.  Git pull to make sure you have the latest version of the blog
+    ![](images/git-pull.png)
+
+3.  Here you can find a list of files you have changed or added. Click on the plus icon next to changes to stage all files or add one by one.
 
     ![](images/stage-icon.png)
 
-3.  Write a short message that represents the changes you have made.
+4.  Write a short message that represents the changes you have made.
 
-4.  Click on the arrow next to Commit and choose "Commit & Push"
+5.  Click on the arrow next to Commit and choose "Commit & Push"
 
     ![](images/commit-and-push-icon.png)
 
-5. To create a tag and deploy to the test environment, click on the git graph to view the commit and branch history. Here you can right click the commit you want to create a tag and select `Add tag...`. Add a name (unique) to your tag and select the checkbox `Push to remote` before clicking on `Add tag`
+6. To create a tag and deploy to the test environment, click on the git graph to view the commit and branch history. Here you can right click the commit you want to create a tag and select `Add tag...`. Add a name (unique) to your tag and select the checkbox `Push to remote` before clicking on `Add tag`
 
     ![](images/git-graph.png)

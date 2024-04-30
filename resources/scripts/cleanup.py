@@ -59,7 +59,6 @@ def is_rendering():
             pass
     return False
 
-print("wtf")
 if is_rendering():
     print("removing edit buttons")
     remove_script_tags_to_directory('./posts')
