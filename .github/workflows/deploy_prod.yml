@@ -29,3 +29,5 @@ jobs:
         echo "${SSH_PRIVATE_KEY}" | ssh-add -
         echo "${SSH_HOST_KEY}" > ~/.ssh/known_hosts
         rsync -hrvz --delete _site/* "${SSH_USER_HOST_LOCATION}/test"
+
+        curl https://ipese-web.epfl.ch/gitlab-mm/blog-validation?blog=climact
