@@ -287,9 +287,10 @@ The changes can be deployed to the online blog [here](https://ipese-web.epfl.ch/
 
 ## Add a post to the production website
 
-To publish a post on the production website, include ```prod: true``` in the YAML header of your post. This version will then be published in the test environment [here](https://ipese-web.epfl.ch/climact-test/) and it will need to be accepted via the mattermost channel created for this (only some members have access to this channel). When accepted, it will be available [here](https://ipese-web.epfl.ch/climact).
+To publish a post on the production website, include ```prod: true``` in the YAML header of your post and add a tag to your commit. This version will then be published in the test environment [here](https://ipese-web.epfl.ch/climact-test/) and it will need to be accepted via the mattermost channel created for this (only some members have access to this channel). When accepted, it will be available [here](https://ipese-web.epfl.ch/climact).
 
 On the production side, the Edit and Chat buttons are disabled, emphasizing the need to deploy only the final version ofiona your post to this website. Additlly, ensure that all data can be shared, considering that the production website is accessible to everyone, including users without VPN access and those without access to Tequila.
+
 ### VSCode
 
 1.  In the sidebar on the left, go to the git menu:
@@ -305,3 +306,7 @@ On the production side, the Edit and Chat buttons are disabled, emphasizing the 
 4.  Click on the arrow next to Commit and choose "Commit & Push"
 
     ![](images/commit-and-push-icon.png)
+
+5. To create a tag and deploy to the test environment, click on the git graph to view the commit and branch history. Here you can right click the commit you want to create a tag and select `Add tag...`. Add a name (unique) to your tag and select the checkbox `Push to remote` before clicking on `Add tag`
+
+    ![](images/git-graph.png)
