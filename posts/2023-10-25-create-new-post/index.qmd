@@ -24,7 +24,7 @@ prod: true
 
 This document presents how to publish blog post in the [Climact blog](https://github.com/IPESE/climact-blog).
 
-The website is depoyed to the [development environment](https://ipese-web.epfl.ch/climact-dev) on every commit pushed to github, it can be deployed to a [test environment](https://ipese-web.epfl.ch/climact-test) and if the latest one is accepted deplyoed to the production environment. (*More information about test and production bellow*)
+The website is depoyed to the [development environment](https://ipese-web.epfl.ch/climact-dev) on every commit pushed to github, it can be deployed to a [test environment](https://ipese-web.epfl.ch/climact-test) and if the latest one is accepted deplyoed to the [production environment](https://ipese-web.epfl.ch/climact). (*More information about test and production bellow*)
 
 You can add posts to this Quarto blog in any of the menus on the navbar. Blog articles are written in Quarto, which is similar to Markdown. You can also run R or Python code chunks in your posts, import .bib files, and use many other features.
 
