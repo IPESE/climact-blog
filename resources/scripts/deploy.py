@@ -87,7 +87,26 @@ def exclude_dev_parts():
     exclude_dev_posts('./posts')
     add_prod_prefix("./resources/scripts/add_actionButtons.py")
 
+def remove_polyfills(folder_path):
+    pattern = re.compile(r'.*polyfill\.min\.js.*')
+
+    for root, dirs, files in os.walk(folder_path):
+        for filename in files:
+            if filename.endswith('.html'):
+                file_path = os.path.join(root, filename)
+                
+                with open(file_path, 'r', encoding='utf-8') as file:
+                    lines = file.readlines()
+                
+                new_lines = [line for line in lines if not pattern.match(line)]
+                
+                with open(file_path, 'w', encoding='utf-8') as file:
+                    file.writelines(new_lines)
+
+
+
 if len(sys.argv)>1 and sys.argv[1]=="production":
     exclude_dev_parts()
 
 trydeploy()
+remove_polyfills("_site")   
