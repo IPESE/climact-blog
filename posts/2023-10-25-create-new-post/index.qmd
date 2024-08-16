@@ -20,7 +20,7 @@ bibliography: references.bib
 prod: true
 ---
 
-# Create a new blog post
+# How to create a new blog post?
 
 This document presents how to publish blog post in the [Climact blog](https://github.com/IPESE/climact-blog).
 
